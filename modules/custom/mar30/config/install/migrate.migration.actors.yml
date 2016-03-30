@@ -1,0 +1,13 @@
+id: actors
+label: Actors
+migration_group: demo
+source:
+  plugin: csv
+  key: default
+destination:
+  plugin: entity:taxonomy_term
+process:
+  vid:
+    plugin: default_value
+    default_value: tags
+  name: name

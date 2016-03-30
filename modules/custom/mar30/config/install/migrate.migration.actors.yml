@@ -1,13 +1,23 @@
 id: actors
 label: Actors
 migration_group: demo
+migration_tags:
+  - CSV
 source:
   plugin: csv
-  key: default
+  path: public://actors.csv
+  header_row_count: 1
+  keys:
+    - id
+
 destination:
-  plugin: entity:taxonomy_term
+  plugin: entity:node
+
 process:
-  vid:
+  type:
     plugin: default_value
-    default_value: tags
-  name: name
+    default_value: actor
+  title:
+    plugin: get
+    source: name
+

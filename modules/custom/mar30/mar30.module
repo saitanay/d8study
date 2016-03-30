@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains mar30.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mar30_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the mar30 module.
+    case 'help.page.mar30':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Migration Demo D8 Acquia India Stufy Group March 30') . '</p>';
+      return $output;
+
+    default:
+  }
+}

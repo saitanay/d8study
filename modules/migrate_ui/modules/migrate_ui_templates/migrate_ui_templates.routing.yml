@@ -1,0 +1,15 @@
+migrate_ui_templates.list_templates:
+  path: '/admin/config/migrate/templates'
+  defaults:
+    _controller: '\Drupal\migrate_ui_templates\Controller\MigrateUiTemplateController::listMigrationTemplates'
+    _title: 'List migration templates'
+  requirements:
+    _permission: 'administer migration templates'
+
+migrate_ui.build_template:
+  path: '/admin/config/migrate/templates/{template_name}/build'
+  defaults:
+    _form: '\Drupal\migrate_ui_templates\Form\BuildMigrationForm'
+    _title: 'Build migration template'
+  requirements:
+    _permission: 'administer migration templates'

@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Migrate UI module file.
+ */
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function migrate_ui_entity_type_alter(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  $entity_types['migration']
+    ->setListBuilderClass('Drupal\migrate_ui\MigrationListBuilder')
+    ->set('admin_permission', 'administer migrations')
+    ->setLinkTemplate('canonical', '/admin/config/migrate/migrations/edit/{migration}')
+    ->setLinkTemplate('collection', '/admin/config/migrate/migrations')
+    ->setLinkTemplate('edit-form', '/admin/config/migrate/migrations/edit/{migration}')
+    ->setLinkTemplate('delete-form', '/admin/config/migrate/migrations/delete/{migration}')
+    ->setFormClass('default', 'Drupal\migrate_ui\Form\CreateMigrationForm')
+    ->setFormClass('process', 'Drupal\migrate_ui\Form\ProcessMigrationForm')
+    ->setFormClass('delete-form', 'Drupal\Core\Entity\EntityDeleteForm');
+}
+
+/**
+ * Implements hook_migrate_process_info_alter().
+ */
+function migrate_ui_migrate_process_info_alter(&$definitions) {
+  foreach ($definitions as $key => &$definition) {
+    if ($definition['provider'] === 'migrate' && $key !== 'get') {
+      $definition['ui'] = TRUE;
+    }
+  }
+}

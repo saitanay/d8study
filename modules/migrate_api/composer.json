@@ -1,0 +1,20 @@
+{
+  "name": "drupal/migrate_api",
+  "description": "Migrate API is the CTools for Migrate",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/migrate_api",
+  "authors": [
+    {
+      "name": "Ben Dougherty",
+      "homepage": "http://devblog.com.au",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/migrate_api",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "http://git.drupal.org/project/migrate_api.git"
+  },
+  "license": "GPL-2.0+",
+  "require": {}
+}

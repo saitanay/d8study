@@ -1,0 +1,6 @@
+migrate_ui_templates.list_templates:
+  title: Migration Templates
+  description: 'View and build migration templates into migration entities.'
+  route_name: migrate_ui_templates.list_templates
+  parent: migrate_ui.admin_config_content_migrate
+  weight: 0

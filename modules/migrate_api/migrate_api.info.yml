@@ -1,0 +1,11 @@
+name: Migrate API
+description: Migrate API provodes additional functionality on-top of cores Migrate.
+type: module
+# core: 8.x
+package: Migrate
+
+# Information added by Drupal.org packaging script on 2016-02-02
+version: '8.x-1.1'
+core: '8.x'
+project: 'migrate_api'
+datestamp: 1454403243

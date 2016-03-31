@@ -1,0 +1,13 @@
+migrate_ui.list_migrations:
+  title: Migrations
+  description: 'View, edit and create migration config entities.'
+  route_name: entity.migration.collection
+  parent: migrate_ui.admin_config_content_migrate
+  weight: 0
+
+migrate_ui.admin_config_content_migrate:
+  title: 'Migrate'
+  description: 'Migrate specific UIs and tools'
+  route_name: migrate_ui.admin_config_content_migrate
+  parent: system.admin_config
+  weight: -15

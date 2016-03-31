@@ -1,0 +1,20 @@
+{
+  "name": "drupal/migrate_ui",
+  "description": "Migrate UI provides a user interface on top of cores Migrations and templates.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/migrate_ui",
+  "authors": [
+    {
+      "name": "Ben Dougherty",
+      "homepage": "http://devblog.com.au",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/migrate_ui",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "http://git.drupal.org/project/migrate_ui.git"
+  },
+  "license": "GPL-2.0+",
+  "require": {}
+}

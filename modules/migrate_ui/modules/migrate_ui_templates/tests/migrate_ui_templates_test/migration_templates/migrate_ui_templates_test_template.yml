@@ -1,0 +1,11 @@
+id: migrate_ui_templates_test_template
+label: Test Template 1
+migration_tags:
+  - Migrate UI Test Template
+source:
+  plugin: migrate_ui_test_source
+process:
+  nid: nid
+  vid: vid
+destination:
+  plugin: entity:node

@@ -1,14 +1,9 @@
 id: actors
 label: Actors
 migration_group: demo
-migration_tags:
-  - CSV
 source:
-  plugin: csv
-  path: public://actors.csv
-  header_row_count: 1
-  keys:
-    - id
+  plugin: actors
+  key: id
 
 destination:
   plugin: entity:node
@@ -20,4 +15,3 @@ process:
   title:
     plugin: get
     source: name
-

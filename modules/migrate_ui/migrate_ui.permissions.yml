@@ -1,0 +1,3 @@
+administer migrations:
+  description: 'Administer migration entities via the UI.'
+  title: 'Administer Migrations'

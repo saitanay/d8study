@@ -1,0 +1,47 @@
+migrate_ui.admin_config_content_migrate:
+  path: '/admin/config/migrate'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Migrate'
+  requirements:
+    _permission: 'administer migrations'
+
+migrate_ui.create_migration:
+  path: '/admin/config/migrate/migrations/create'
+  defaults:
+    _entity_form: 'migration.default'
+    _title: 'Create migration'
+  requirements:
+    _permission: 'administer migrations'
+
+entity.migration.collection:
+  path: '/admin/config/migrate/migrations'
+  defaults:
+    _entity_list: 'migration'
+    _title: 'List migrations'
+  requirements:
+    _permission: 'administer migrations'
+
+migrate_ui.migration_process:
+  path: '/admin/config/migrate/migrations/process/{migration}/{destination_field}'
+  defaults:
+    _entity_form: 'migration.process'
+    _title_callback: '\Drupal\migrate_ui\Controller\MigrationController::processConfigurationTitle'
+  requirements:
+    _permission: 'administer migrations'
+
+entity.migration.edit_form:
+  path: '/admin/config/migrate/migrations/edit/{migration}'
+  defaults:
+    _entity_form: 'migration.default'
+    _title: 'Edit migration'
+  requirements:
+    _entity_access: 'migration.update'
+
+entity.migration.delete_form:
+  path: '/admin/config/migrate/migrations/delete/{migration}'
+  defaults:
+    _entity_form: 'migration.delete-form'
+    _title: 'Delete migration'
+  requirements:
+    _entity_access: 'migration.delete'

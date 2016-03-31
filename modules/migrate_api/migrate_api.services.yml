@@ -1,0 +1,4 @@
+services:
+  migrate_api.schema_form_builder:
+    class: Drupal\migrate_api\SchemaFormBuilder
+    arguments: ['@config.typed']

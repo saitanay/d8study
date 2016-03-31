@@ -3,7 +3,6 @@ label: Actors
 migration_group: demo
 source:
   plugin: actors
-  key: id
 
 destination:
   plugin: entity:node

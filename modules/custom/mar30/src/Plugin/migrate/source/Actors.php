@@ -38,7 +38,7 @@ class Actors extends SqlBase {
         return [
             'id' => [
                 'type' => 'integer',
-                'alias' => 'id',
+                'alias' => 'a',
             ],
         ];
     }

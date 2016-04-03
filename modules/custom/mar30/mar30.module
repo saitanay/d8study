@@ -22,3 +22,19 @@ function mar30_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Implements hook_mail_alter().
+ */
+function mar30_mail_alter(&$message){
+  if($message['key'] == "page_mail"){
+    if($message['params']['contact_form']->id == "departmental_contact_form") {
+        if ($message['params']['contact_message']->fields['field_department']['x-default']->list[0]->values['value'] == "Sales"){
+            $message['to'] ="sales@tanay.co.in";
+        }
+        if ($message['params']['contact_message']->fields['field_department']['x-default']->list[0]->values['value'] == "Sales"){
+            $message['to'] ="support@tanay.co.in";
+        }
+    }
+  }
+}

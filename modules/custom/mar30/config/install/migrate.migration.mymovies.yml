@@ -1,0 +1,38 @@
+id: mymovies
+label: My Movies
+migration_group: demo
+source:
+  plugin: mymovies
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: movie
+  title:
+    plugin: get
+    source: title
+  body:
+    -
+      plugin: get
+      source: plot
+    -
+      plugin: bodyprocess
+  field_actor:
+    -
+      plugin: explode
+      source: actors
+      delimiter: ,
+      limit: 100
+    -
+      plugin: migration
+      migration: actors
+#  field_genre:
+#    plugin: migration
+#    migration:
+
+migration_dependencies:
+  required:
+    - actors

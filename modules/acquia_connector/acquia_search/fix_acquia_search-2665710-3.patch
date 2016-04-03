@@ -1,0 +1,151 @@
+diff --git a/acquia_search/config/install/search_api.index.acquia_search_index.yml b/acquia_search/config/install/search_api.index.acquia_search_index.yml
+index a70b186..20d6ebf 100644
+--- a/acquia_search/config/install/search_api.index.acquia_search_index.yml
++++ b/acquia_search/config/install/search_api.index.acquia_search_index.yml
+@@ -1,41 +1,55 @@
+ id: acquia_search_index
+ name: 'Acquia Search Solr Index'
+ uuid: c39b2493-bdfb-4045-b200-c8517ff04658
+-description: ''
+-read_only: false
+-options:
+-  index_directly: false
+-  cron_limit: 50
+-  processors:
+-    language:
+-      status: '1'
+-      weight: -50
+-      settings: {  }
+-      processorPluginId: language
+-  fields:
+-    search_api_language:
+-      type: string
+-    'entity:node/body':
+-      type: text
+-    'entity:node/title':
+-      type: string
+-  'additional fields': {  }
+-datasources:
+-  - 'entity:node'
+-datasource_configs:
+-  'entity:node':
+-    default: '1'
+-    bundles:
+-      article: '0'
+-      page: '0'
+-tracker: default
+-tracker_config: {  }
+-server: acquia_search_server
+-status: false
+ langcode: en
++description: ''
+ dependencies:
+   config:
+     - search_api.server.acquia_search_server
+   enforced:
+     module:
+       - acquia_search
++datasource_settings:
++  'entity:node':
++    plugin_id: 'entity:node'
++    settings:
++      default: '1'
++      bundles:
++        article: '0'
++        page: '0'
++      languages: {  }
++field_settings:
++  search_api_language:
++    label: 'Item language'
++    datasource_id: null
++    property_path: search_api_language
++    type: string
++    indexed_locked: true
++    type_locked: true
++  body:
++    label: Body
++    datasource_id: 'entity:node'
++    property_path: body
++    type: text
++  title:
++    label: Title
++    datasource_id: 'entity:node'
++    property_path: title
++    type: text
++processor_settings:
++  add_url:
++    plugin_id: add_url
++    settings: {  }
++  language:
++    plugin_id: language
++    settings: {  }
++options:
++  index_directly: false
++  cron_limit: 50
++read_only: false
++server: acquia_search_server
++status: false
++tracker_settings:
++  default:
++    plugin_id: default
++    settings: {  }
+diff --git a/acquia_search/config/optional/views.view.acquia_search.yml b/acquia_search/config/optional/views.view.acquia_search.yml
+index c2d31ce..6de5c59 100644
+--- a/acquia_search/config/optional/views.view.acquia_search.yml
++++ b/acquia_search/config/optional/views.view.acquia_search.yml
+@@ -140,13 +140,13 @@ display:
+           relationship: none
+           group_type: group
+           admin_label: ''
+-          operator: AND
++          operator: and
+           value: ''
+           group: 1
+           exposed: true
+           expose:
+             operator_id: search_api_fulltext_op
+-            label: Search
++            label: 'Search'
+             description: ''
+             use_operator: false
+             operator: search_api_fulltext_op
+@@ -170,10 +170,10 @@ display:
+             default_group: All
+             default_group_multiple: {  }
+             group_items: {  }
+-          mode: filter
+           min_length: null
+           fields:
+-            'entity:node/body': 'entity:node/body'
++            body: body
++            title: title
+           plugin_id: search_api_fulltext
+       sorts:
+         search_api_relevance:
+@@ -208,12 +208,16 @@ display:
+       relationships: {  }
+       arguments: {  }
+       display_extenders: {  }
++      filter_groups:
++        operator: AND
++        groups: {  }
+     cache_metadata:
+       contexts:
+         - 'languages:language_interface'
+-        - url
+         - url.query_args
+       cacheable: false
++      max-age: 0
++      tags: {  }
+   page:
+     display_plugin: page
+     id: page
+@@ -235,6 +239,7 @@ display:
+     cache_metadata:
+       contexts:
+         - 'languages:language_interface'
+-        - url
+         - url.query_args
+       cacheable: false
++      max-age: 0
++      tags: {  }

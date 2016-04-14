@@ -1,0 +1,14 @@
+{
+  "name": "drupal/tanay_attach",
+  "type": "drupal-module",
+  "description": "Tanays Test Attachment",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/tanay_attach",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/tanay_attach",
+    "source": "http://cgit.drupalcode.org/tanay_attach"
+  },
+  "require": { }
+}

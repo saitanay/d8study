@@ -1,0 +1,5 @@
+name: tanay_attach
+type: module
+description: Tanays Test Attachment
+core: 8.x
+package: Custom

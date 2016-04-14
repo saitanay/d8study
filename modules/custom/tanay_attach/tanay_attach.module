@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Contains tanay_attach.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tanay_attach_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tanay_attach module.
+    case 'help.page.tanay_attach':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Tanays Test Attachment') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function tanay_attach_element_info_alter(array &$types) {
+  if(isset($types['table'])){
+    $types['table']['#attached']['library'][] = 'tanay_attach/tanay';
+//    kint($types);
+  }
+}

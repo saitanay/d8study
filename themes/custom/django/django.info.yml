@@ -1,0 +1,14 @@
+name: django
+type: theme
+description: My Awesome theme
+package: Other
+core: 8.x
+libraries:
+  - django/global-styling
+
+base theme: stable
+
+regions:
+  content: Content
+  sidebar1: Sidebar 1
+  sidebar2: Sidebar 2

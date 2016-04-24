@@ -1,0 +1,4 @@
+star_rating:
+ css:
+    theme:
+      css/star-rating.css: {}

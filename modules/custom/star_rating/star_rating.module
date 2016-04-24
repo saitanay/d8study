@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains star_rating.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function star_rating_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the star_rating module.
+    case 'help.page.star_rating':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Star Rating Field Formatter for Integer Field') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function star_rating_theme() {
+  return array(
+    'star_rating' => array(
+      'variables' => array('ratingvalue' => NULL),
+      'template' => 'star-rating-formatter',
+    ),
+  );
+}

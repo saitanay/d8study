@@ -1,0 +1,11 @@
+{% if ratingvalue %}
+<!-- div element full of empty stars -->
+<div class='rating_bar'>
+    <!-- div element that contains full stars with percentage width, 
+    which represents rating -->
+    <div  class='rating' style='width:{{ ratingvalue }}%;'>
+    </div>
+</div>
+{% else %}
+    No rating available
+{% endif %}

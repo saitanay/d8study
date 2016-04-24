@@ -1,0 +1,5 @@
+name: Star Rating
+type: module
+description: Star Rating Field Formatter for Integer Field
+core: 8.x
+package: Custom

@@ -4,4 +4,4 @@ tanay:
     theme:
       css/tanay.css: {}
   js:
-      js/tanay.js: {}
+      js/datexposed.js: {}

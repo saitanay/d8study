@@ -1,0 +1,4 @@
+datexposed:
+  version: 0
+  js:
+      js/datexposed.js: {}

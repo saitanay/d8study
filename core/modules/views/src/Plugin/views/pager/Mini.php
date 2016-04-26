@@ -73,25 +73,6 @@ class Mini extends SqlBase {
   /**
    * {@inheritdoc}
    */
-  public function postExecute(&$result) {
-    // In query() one more item might have been retrieved than necessary. If so,
-    // the next link needs to be displayed and the item removed.
-    if ($this->getItemsPerPage() > 0 && count($result) > $this->getItemsPerPage()) {
-      array_pop($result);
-      // Make sure the pager shows the next link by setting the total items to
-      // the biggest possible number but prevent failing calculations like
-      // ceil(PHP_INT_MAX) we take PHP_INT_MAX / 2.
-      $total = PHP_INT_MAX / 2;
-    }
-    else {
-      $total = $this->getCurrentPage() * $this->getItemsPerPage() + count($result);
-    }
-    $this->total_items = $total;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function render($input) {
     // The 1, 3 indexes are correct, see template_preprocess_pager().
     $tags = array(

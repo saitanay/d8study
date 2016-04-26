@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Contains datexposed.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function datexposed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the datexposed module.
+    case 'help.page.datexposed':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Date Exposed') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function datexposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  dsm($form_id); dsm($form);
+  if($form['#action'] == "/d8/filter-by-date"){
+    $form['#attached']['library'][] = 'datexposed/datexposed';
+    $form['month'] = array(
+      '#type' => 'select',
+      '#title' => t('Month'),
+      '#options' => array(
+        0 => t('Any'),
+        11 => t('November'),
+        12 => t('December'),
+      ),
+      '#default_value' => 0,
+      '#description' => t('Select Month'),
+    );
+
+    $form['year'] = array(
+      '#type' => 'select',
+      '#title' => t('Year'),
+      '#options' => array(
+        0 => t('Any'),
+        1985 => t('1985'),
+        1986 => t('1986'),
+      ),
+      '#default_value' => 0,
+      '#description' => t('Select Year'),
+    );
+
+  }
+}

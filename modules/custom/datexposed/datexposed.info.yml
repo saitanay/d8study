@@ -1,0 +1,5 @@
+name: Date Exposed
+type: module
+description: Date Exposed
+core: 8.x
+package: Custom

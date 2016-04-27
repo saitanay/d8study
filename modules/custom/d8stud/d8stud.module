@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains d8stud.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function d8stud_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the d8stud module.
+    case 'help.page.d8stud':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('D8 Study Group Example') . '</p>';
+      return $output;
+
+    default:
+  }
+}

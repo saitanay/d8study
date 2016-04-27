@@ -28,7 +28,7 @@ function datexposed_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_form_alter().
  */
 function datexposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  dsm($form_id); dsm($form);
+//  dsm($form_id); dsm($form);
   if($form['#action'] == "/d8/filter-by-date"){
     $form['#attached']['library'][] = 'datexposed/datexposed';
     $form['month'] = array(
